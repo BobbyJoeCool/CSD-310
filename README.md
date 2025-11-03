@@ -117,3 +117,51 @@ The key point here is, CARs is a nested collection under the USER document.
 
 **Deliverables**
 1) Word document with your name and assignment number on first page, with screenshot or graphic of ERD and one of NoSQL data structure.
+
+## Module 3
+11/3/2025-11/10/2025
+
+Welcome to Module 3! During this module, we will exploring data models associated with both relational and NoSQL databases. We will also be working with Visual Paradigm, an online ERD modeling tool.
+
+### Deliverables
+
+1) Module 3.1 Discussion Board Initial Post - Due by Thursday 11:59 p.m., CST.
+2) Discussion Board Responses - Due by Sunday 11:59 p.m., CST.
+3) Module 3.2 Assignment: Normalized Tables - Due by Sunday 11:59 p.m., CST.
+
+### Discussion Board
+**Discussion Question: Normalization**
+
+
+For this module's discussion board assignment respond to one the following topics:
+
+1) Can a database be in Third Normal Form (3NF), without achieving First Normal Form (1NF)? Why or why not?
+2) At what point can the data in a field be considered atomic? Is it possible to carry atomicity too far and how do you know this has happened? Provide an example not found in the text.
+3) What is the purpose of a foreign key? Can you have more than one? Provide an example.
+4) In an employee database would you store a person's physical age, their date of birth or both? Why or why not?
+
+### Assignments
+
+Assignment: Normalized Tables
+For this assignment, you are to take a set of fields and categorize them appropriately into tables and then ensure those tables are in 3NF. There is no one correct solution to this, so you should include any assumptions you make. The solution should be in table/cell format, not in an ERD format. This is an example of moving from 1NF to 3NF in a table/cell format.
+
+The first image below is a possible solution for student, faculty and other data fields and how they might be organized into tables. (See Blackboard fot Images)
+
+Assignment Data Fields:
+- publisher_name
+- publisher_ID
+- publisher_address
+- book_isbn
+- book_name
+- book_price
+- author_first_name
+- author_last_name
+- author_phone
+- author_email
+- publisher_email
+- author_address
+
+**Instructions:**
+1) Create (if you haven't already) a directory in CSD-310 named module-3.
+2) Take the Assignment Data Fields and organize them into tables, then get those tables into 3rd Normal Form (3NF). You do not have to use Excel, but the result should be similar to the above. Once you've finished, either embed the Excel sheet in a Word document or take a screenshot and paste it into a Word document. Make sure your name and assignment number are at the top of the Word document.
+3) Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-3 directory.
