@@ -119,7 +119,7 @@ The key point here is, CARs is a nested collection under the USER document.
 1) Word document with your name and assignment number on first page, with screenshot or graphic of ERD and one of NoSQL data structure.
 
 ## Module 3
-11/3/2025-11/10/2025
+11/3/2025-11/9/2025
 
 Welcome to Module 3! During this module, we will exploring data models associated with both relational and NoSQL databases. We will also be working with Visual Paradigm, an online ERD modeling tool.
 
