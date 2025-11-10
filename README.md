@@ -165,3 +165,89 @@ Assignment Data Fields:
 1) Create (if you haven't already) a directory in CSD-310 named module-3.
 2) Take the Assignment Data Fields and organize them into tables, then get those tables into 3rd Normal Form (3NF). You do not have to use Excel, but the result should be similar to the above. Once you've finished, either embed the Excel sheet in a Word document or take a screenshot and paste it into a Word document. Make sure your name and assignment number are at the top of the Word document.
 3) Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-3 directory.
+
+## Module 4
+11/10/2025 - 11/16/2025
+
+Welcome to Module 4! During this module, we will be installing MySQL and PyCharm. We will also be digging into basic SQL commands.
+
+### Deliverables
+1) Module 4.1 Discussion Board Initial Post - Due by Thursday 11:59 p.m., CST.
+2) Discussion Board Responses - Due by Sunday 11:59 p.m., CST.
+3) Module 4.2 Assignment: MySQL - Due by Sunday 11:59 p.m., CST.
+4) Optional: PyCharm & VSCode
+
+### Discussion Board
+**MySQL**
+
+For this module's discussion board assignment respond to **one** the following topics:
+1) Describe DDL. Provide at least two examples of DDL commands and explain when they might be used.
+2) Describe DML. Provide at least two examples of DML commands and explain when they might be used.
+3) Describe TCL. Provide at least two examples of TCL commands and explain when they might be used.
+4) Describe DCL. Provide at least two examples of DCL commands and explain when they might be used.
+
+### Assignments
+#### Assignment 4.2
+**Assignment: MySQL Install**
+
+For this assignment, you will be installing MySQL. There are a couple of links above for guidance in installing MySQL on either a Windows machine, or a Mac machine. If you have issues, I strongly suggest you ask in this module's forum, or the cohort's discord site.
+
+**Instructions**
+1) Create (if you haven't already) a directory in CSD-310 named module-4.
+2) Based on your computer's Operating System, select a link above to install MySQL. When following the install process, make sure you write down your root password. You'll be using it frequently!
+3) Once MySQL has been installed, start the database through the terminal window. In Windows, the terminal window will show up in your list when you click on the 'Window' icon in the lower left part of your desktop, then MySQL. Once it opens, you'll be asked for your password.
+    - Create a Word document and put your name and assignment number on the first page.Take a screenshot of your initial database connection, and paste it into the Word document.
+    - Create a database..
+        - The basic syntax for creating a database in MySQL is
+        - CREATE DATABASE "database-name";
+    - Create a database named movies.
+    - MySQL: Show Databases
+        - SHOW DATABASES;
+    - Take a screenshot of the output from the show database command, and paste into the Word document. Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-4 directory.
+4) I want to see whether or not the database was created.
+
+**Deliverables**
+
+1) Combine the images into a single word document and include your name, date, and assignment on the first page.
+2) Save your document as "your-last-name"-"assignment-name" .docx into your CSD-310/module-4 directory.
+
+## Module 5
+11/10/2025 - 11/16/2025
+
+Welcome to Module 5! During this module, we will be taking a first look at SQL functions and creating an ERD for future exercises.
+
+### Deliverables
+1) Module 5.1 Discussion Board Initial Post - Due by Thursday 11:59 p.m., CST.
+2) Discussion Board Responses - Due by Sunday 11:59 p.m., CST.
+3) Module 5.2 Assignment: MySQL Functions- Due by Sunday 11:59 p.m., CST.
+4) Module 5.3 Assignment: Movies Database ERD- Due by Sunday 11:59 p.m., CST.
+
+### Discussion Board
+**SQL**
+
+For this module's discussion board assignment respond to **one** the following topics:
+1) You run a query on the mysql.user table and find user accounts with the hostname listed as "%". What does this mean, and what concerns might that cause?
+2) Would you create a user with a blank password? Why or why not?
+3) What would be the reason for granting permissions to a user and then immediately revoking those permissions?
+4) How often should users and their permissions be monitored? Why?
+
+### Assignments
+#### Assignment 5.2
+**SQL Functions**
+
+MySQL has many native functions that will come in handy from time to time. One is the current_date() function referenced in the previous chapter.
+
+SELECT CURRENT_DATE(); will retrieve the current date in YYYY-MM-DD format, it also provides a column header of current_date(). Instead of having a column header as the function name, you can stipulate what alias you'd like to use. SELECT CURRENT_DATE() AS 'Today\'s Date'; will return the same result with a column header of Today's Date, which is much more user friendly. The \ is an escape character so you could use the apostrophe in the column header. If you have only a single word as an alias, you do not need to enclose it in single quotation marks.
+
+
+**Instructions**
+1) Create (if you haven't already) a directory in CSD-310 named module-5.
+2) Create a Word document and put your name and assignment number on the first page.
+3) Go out to the W3Schools links above, and select at least three functions to experiment with. For each:
+    - Provide an explanation of when it might be used.
+    - Provide an appropriate alias for the column header in the results.
+    - Provide the SQL statment, run the statement, then take a screenshot of the results and paste it into your Word document. Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-5 directory.
+
+**Deliverables**
+1) Combine the images into a single word document and include your name, date, and assignment on the first page..
+2) Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-5 directory.
