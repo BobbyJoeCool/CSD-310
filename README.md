@@ -251,3 +251,118 @@ SELECT CURRENT_DATE(); will retrieve the current date in YYYY-MM-DD format, it a
 **Deliverables**
 1) Combine the images into a single word document and include your name, date, and assignment on the first page..
 2) Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-5 directory.
+
+## Module 6
+11/17/2025 - 11/24/2025
+
+Welcome to Module 6! During this module, creating the tables for the movies database and using a python script to access the MySQL database..
+
+**Deliverables**
+1) Module 6.1 Discussion Board Initial Post - Due by Thursday 11:59 p.m., CST.
+2) Discussion Board Responses - Due by Sunday 11:59 p.m., CST.
+3) Module 6.2 Assignment: Movies: Setup - Due by Sunday 11:59 p.m., CST.
+
+### Discussion Board
+For this module's discussion board assignment respond to **one** the following topics:
+1) What is a primary key? Provide characteristics and an example for what type of field could be used, and what type of field should NOT be used as a primary key. Does each table need a primary key? Why or why not??
+2) What is a foreign key? Provide an example for how a foreign key might be used. What are some of the issues associated with using foreign keys?
+3) What are the three ways in which you can declare a comment in SQL? Provide an example of each and when it might be used.
+4) What are two possible responses from the database if a user attempts to delete a record in a parent table for which there are associated records in a child table? How should each response be met?
+
+### Assignment
+#### Assignment 6.2
+For this assignment, you will be learning how to create database tables, run SQL scripts from the terminal window to create tables, and how to connect a Python program to MySQL. Since these files are going to be pushed to GitHub in a public repository, we need to protect the login information. There is a lot of information to absorb in this assignment. Make sure you take your time to understand what you are doing and why you are doing it.
+
+In this example, we are inserting a new record in the film table and mapping the values. The order you place the items in the VALUES section must match the order you have for the COLUMN VALUES. Remember, though, if the _id is auto-incremented, you do not include that in the VALUES list. Additionally, you'll see that to include the_id from studio and genre, I'm doing a SELECT to get the correct _id for for each type.
+
+**Instructions**
+1) Create (if you haven't already) a directory in CSD-310 named module-6.
+2) Create a Word document and put your name and assignment number on the first page.
+3) Start MySQL Command Line Client. The .sql script can only be run in the MySQL command line terminal.
+    - Log in to command line provided by MySQL. Or... If you click on 'Terminal' in the bottom menu bar in PyCharm, you've got some choices. On my machine Windows Powershell opens up by default. If you'd rather use the Command Prompt, click on the down arrow next to the '+' sign and select Command Prompt. You can also add a terminal for MySQL by clicking that '+' sign, adding another Command Prompt and then changing the directory to the bin of your MySQL server, on my machine it is: cd program files\mysql\mysql server 8.0\bin You can then use the following the connect to the MySQL Interface mysql -u root -p where root is the username you want to use. The -p means you will be prompted for a password. Same options using VSCode.
+4) Once logged into MySQL in the command line of your choice, move to the desired database.
+    - use "database name";
+    - USE movies;
+5) Run the SQL script
+    - source "path_to_the_ sql_script".sql;
+    - Example: source d:/CSD/csd_310/db_init_2022.sql;
+    - Note: the db_init_2022.sql script is attached to this assignment.
+    - Take a screenshot of the last couple of lines you see once you've run the script. Copy into the Word document. Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-6 directory.
+6) Show a list of database tables (this assumes you have activated the database)
+    - Move to database: use "database name"
+    - USE movies;
+    - Show tables
+    - SHOW TABLES;
+        - Take a screenshot of the result of SHOW TABLES. Copy into the Word document. Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-6 directory.
+
+7) MySQL: Python Connector
+    - First, make sure you have the mysql-connector-python driver installed.
+    - MySQL: Python Driver (pip) - run in generic (not MySQL) command line terminal
+    - pip install mysql-connector-python
+8) MySQL: Secure Login Info
+    - In Python we can secure login info by using a package that gives us the ability to store these secret credentials in a hidden file (.env) which git ignores so the file can't be tracked. If you look in your .gitignore file on GitHub, you'll see a section: # Environments, which lists .env.
+    - Two things to do here, first is to download the _.env Click for more options fIle and save into your Module 6 directory (when you save it, add a dot before the name.. should be saved as .env). Take a look at the file in a text editor. You'll see it has the values for USER, PASSWORD, HOST AND DATABASE. If you used different values than were in the db_init_2022 file, you'll need to make changes to that .env file
+    - Second is to install the dotenv package: pip install python-dotenv
+9) MySQL: mysql_test.py.
+    - Python imports needed
+    
+```python
+""" import statements """
+import mysql.connector # to connect
+from mysql.connector import errorcode
+
+import dotenv # to use .env file
+from dotenv import dotenv_values
+```
+- MySQL: mysql_test.py.Database config object; use YOUR user (could be root, or the user created in the db_init_2022.sql file) and associated password
+```python
+# using our .env file
+secrets = dotenv_values(".env")
+
+""" database config object """
+config = {
+    "user": secrets["USER"],
+    "password": secrets["PASSWORD"],
+    "host": secrets["HOST"],
+    "database": secrets["DATABASE"],
+    "raise_on_warnings": True #not in .env file
+}
+```
+- MySQL: mysql_test.py. Connection test code
+```python
+try:
+    """ try/catch block for handling potential MySQL database errors """
+
+    db = mysql.connector.connect(**config) # connect to the movies database 
+    
+    # output the connection status 
+    print("\n  Database user {} connected to MySQL on host {} with database {}".format(config["user"], config["host"], config["database"]))
+
+    input("\n\n  Press any key to continue...")
+
+except mysql.connector.Error as err:
+    """ on error code """
+
+    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("  The supplied username or password are invalid")
+
+    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("  The specified database does not exist")
+
+    else:
+        print(err)
+
+finally:
+    """ close the connection to MySQL """
+
+    db.close()
+```
+
+- Save your mysql_test.py file into your module-6 directory.
+- Run the script and take a screenshot of the results and paste into the Word document. Save your document as "your-last-name",docx into your CSD-310/module-6 directory.
+
+**Deliverables**
+1) Combine the images and your link to the GitHub repository into a single word document and include your name, date, and assignment on the first page.
+2) Save your document as "your-last-name"-"assignment-name' .docx into your CSD-310/module-6 directory.
+3) mysql_test.py
+4) Zip up files or submit separately.
