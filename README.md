@@ -253,7 +253,7 @@ SELECT CURRENT_DATE(); will retrieve the current date in YYYY-MM-DD format, it a
 2) Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-5 directory.
 
 ## Module 6
-11/17/2025 - 11/24/2025
+11/17/2025 - 11/23/2025
 
 Welcome to Module 6! During this module, creating the tables for the movies database and using a python script to access the MySQL database..
 
@@ -366,3 +366,135 @@ finally:
 2) Save your document as "your-last-name"-"assignment-name' .docx into your CSD-310/module-6 directory.
 3) mysql_test.py
 4) Zip up files or submit separately.
+
+## Module 7
+11/24/2025 - 11/30/2025
+
+Welcome to Module 7! During this module, you'll be doing queries on the movies database using a Python program..
+
+### Deliverables
+1) Module 7.1 Discussion Board Initial Post - Due by Thursday 11:59 p.m., CST.
+2) Discussion Board Responses - Due by Sunday 11:59 p.m., CST.
+3) Module 7.2 Assignment: Movies: Queries - Due by Sunday 11:59 p.m., CST.
+
+### Discussion Board
+**Discussion Question: SQL**
+
+For this module's discussion board assignment respond to one the following topics:
+1) If a table column name conflicts with a SQL keyword, how would you mark it as a column name? Provide an example.
+2) What is the difference between the WHERE and HAVING clause? Provide an example of when you might use each.
+3) Explain what a view is, how they work, and when they should be used. Take a look at movies tables. Create at least one view that would be useful, explain why it would be useful, and provide the SQL for that view.
+4) Explain what a stored procedure is, how they work, and when they should be used. Take a look at movies tables. Create at least one stored procedure that would be useful, explain why it would be useful, and provide the SQL for that stored procedure.
+
+### Assignments
+#### Assignment 7.2
+**Assignment: Movies: Table Queries**
+
+For this assignment, you will be learning how to query MySQL database tables through the terminal window and a Python program.
+
+MySQL Command Line: Select Query:
+```sql
+   SELECT <column_name>, <column_name> FROM <table_name>;
+```
+Example:
+```sql
+   SELECT f_name, l_name, email FROM employee;
+```
+Python Scipt Cursor Example:
+```python
+cursor = db.cursor()
+cursor.execute(“SELECT f_name, l_name, email FROM employee”)
+employees = cursor.fetchall()
+for employee in employees:
+print(“First Name: {}\n Last Name:{}\n Email:{}\n”.format(employee[0], employee[1], employee[2])) -- three fields
+```
+
+Instructions
+1) Create (if you haven't already) a directory in CSD-310 named module-7.
+2) Create a Word document and put your name and assignment number on the first page.
+3) Create a new python file under the module-7 directory and name it movies_queries.py.
+4) Write the code to connect to your MySQL movies database.
+    - Refer to the previous assignment for code structure.
+    - You can basically copy/paste the code we used in the previous assignment.
+5) Write four queries, in one Python file.The output from your queries should match the example below, including descriptions of output and format.
+    1) The first and second query is to select all the fields for the studio and genre tables.
+    2) The third query is to select the movie names for those movies that have a run time of less than two hours.
+    3) The fourth query is to get a list of film names, and directors grouped by director.
+6) Run the script and take a screenshot of the results and paste into the Word document. Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-7 directory.
+
+**Deliverables**
+1) Combine the image and your link to the GitHub repository into a single Word document and include your name, date, and assignment on the first page.
+2) Save your document as "your-last-name"-"assignment-name".docx.
+3) movies_queries.py.
+
+## Module 8
+11/24/2025 - 11/30/2025
+
+Welcome to Module 8! During this module, inserting and deleting records in the movies database using a Python program..
+
+### Deliverables
+1) Module 8.1 Discussion Board Initial Post - Due by Thursday 11:59 p.m., CST.
+2) Discussion Board Responses - Due by Sunday 11:59 p.m., CST.
+3) Module 8.2 Assignment: Movies: Update/Insertion/Deletion - Due by Sunday 11:59 p.m., CST.
+
+
+### Discussion Board
+**Discussion Question: SQL**
+For this module's discussion board assignment respond to one the following topics:
+1) Provide two examples of Inner joins. For your examples, show the contents of each table, then show the results of the join. Would any other SQL statement provide the same results? If so, include it in your response.
+2) Provide two examples of Outer joins. For your examples, show the contents of each table, then show the results of the join. Would any other SQL statement provide the same results? If so, include it in your response.
+3) Provide two examples of Left/right joins. For your examples, show the contents of each table, then show the results of the join. Would any other SQL statement provide the same results? If so, include it in your response.
+
+### Assignment
+#### Assignment 8.2
+**Assignment: Movies: Update & Deletes**
+
+For this assignment, you will be learning how to update and delete records from a MySQL database.
+
+MySQL Examples:
+
+MySQL: Update
+```sql
+UPDATE <table> SET <columns> WHERE <column> = <value>;
+```
+MySQL: Delete
+```sql
+DELETE FROM <table> WHERE <column> = <value>;
+```
+MySQL: Insert
+```sql
+INSERT INTO <table> (<columns>) VALUES ( <values> );
+```
+**Python Instructions**
+
+You'll be displaying selected contents of the film table multiple times, so create a python function that you can call with both a cursor and an output.
+
+- The function should take two arguments; a cursor and a title.
+- The body of the function should have a cursor that executes a select statement that selects film name as Name, film director as Director, genre name as Genre, and studio name as Studio.
+- In order to get the genre name, and not id, you'll need an INNER JOIN. In order to get studio name, and not id, you'll need another INNER JOIN.
+- Example: select film_name as Name, genre_name as Genre, studio_name as 'Studio Name' from film INNER JOIN genre ON film.genre_id=genre.genre_id INNER JOIN studio ON film.studio_id=studio.studio_id
+- In Python, if you must use more than one line for the select, there are a few ways to manage it. You'll have a little research to do.
+- Next, is the cursor. fetchall() statement, see Module 7 assignment for an example.
+- Format the output label..
+- Lastly, iterate over the data set and display results, again see Module 7 assignment for an example.
+
+**Instructions**
+1) Create (if you haven't already) a directory in CSD-310 named module-8.
+2) Create a Word document and put your name and assignment number on the first page.
+3) Create a new python file containing all the queries under the module-8 directory and name it movies_update_and_delete.py.
+4) Using the example code I provided, connect to the movies database.
+5) Using the example code I have provided, call the show_films function to display the selected fields and the associated Label.
+6) show_films(cursor, "DISPLAYING FILMS")
+7) Insert a new record into the film table using a film of your choice. Do not use 'Star Wars'. (Easier if you use a studio already in use..)
+8) Using the example code I have provided, call the show_films function to display the selected fields and the associated Label.
+9) Using the example code I have provided, update the film Alien to being a Horror film.
+10) Using the example code I have provided, call the show_films function to display the selected fields and the associated Label.
+11) Using the example code I have provided, delete the movie Gladiator.
+12) Using the example code I have provided, call theshow_films function to display the selected fields and the associated Label.
+13) Run the script and take a screen shot of the results, or copy the output, and paste into the Word document. Save your document as "your-last-name"-"assignment-name".docx into your CSD-310/module-8 directory.
+14) Make sure your output matches the expected output (this is gradable.)
+
+**Deliverables**
+1) Combine the image and your link to the GitHub repository into a single word document and include your name, date, and assignment on the first page.
+2) Save your document as "your-last-name"-"assignment-name".docx.
+3) movies_update_and_delete.py
