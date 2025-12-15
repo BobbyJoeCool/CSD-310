@@ -1,7 +1,5 @@
-# Blue Group -  CSD-310
+# Blue Team -  CSD-310
 # Carolina Rodriguez
-# Robert Breutzmann
-# Sara White
 #Report for Wine Distribution and Sales
 
 import mysql.connector
